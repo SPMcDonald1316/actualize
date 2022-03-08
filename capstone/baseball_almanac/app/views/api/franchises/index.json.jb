@@ -1,0 +1,7 @@
+@franchises.map do |franchise|
+  {
+    id: franchise.id,
+    franch_id: franchise.franch_id,
+    franch_name: franchise.franch_name
+  }
+end

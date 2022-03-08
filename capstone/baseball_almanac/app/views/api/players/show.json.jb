@@ -1,0 +1,18 @@
+{
+  id: @player.id,
+  name: @player.fullname,
+  height: @player.height_ft,
+  weight: @player.weight,
+  debut: @player.debut_friendly,
+  final_game: @player.final_friendly,
+  hitting_stats: @hitting,
+  post_hitting: @post_hitting,
+  pitching_stats: @pitching,
+  post_pitching: @post_pitching,
+  fielding_stats: @fielding,
+  post_fielding: @post_fielding,
+  allstar: @allstars,
+  awards: @awards,
+  halloffame: @hall_of_fame,
+  salaries: @salaries
+}

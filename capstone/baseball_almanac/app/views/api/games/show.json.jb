@@ -1,0 +1,20 @@
+@game.map do |event|
+  {
+    home_team: event.home_team,
+    away_team: event.away_team,
+    game_date: event.game_date,
+    inning: event.inn_ct,
+    batting: event.batting,
+    outs: event.outs_ct,
+    balls: event.balls_ct,
+    strikes: event.strikes_ct,
+    batter: event.batter,
+    pitcher: event.pitcher,
+    event: event.event_tx,
+    away_score: event.away_score_ct,
+    home_score: event.home_score_ct,
+    rbi: event.rbi_ct,
+    hit: event.h_fl,
+    error: event.err_ct
+  }
+end

@@ -1,0 +1,19 @@
+Commit 4 - Evaluation
+
+Did you feel you had a healthy balance between planning and implementing your solution?
+
+
+
+What methods could be refactored?
+
+1 - 
+2 - 
+3 - 
+4 - 
+
+What worked (in the app or the process)? 
+
+
+
+What could be improved (in the app or the process)?
+

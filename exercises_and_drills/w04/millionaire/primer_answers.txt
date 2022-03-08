@@ -1,0 +1,22 @@
+Commit 1 - Hide and Seek (Primer)
+Write the number of the method in the following sections
+
+Hides Controller
+  
+ Method Numbers: 
+
+Hides Views
+  
+ Method Numbers: 
+
+Mouse Model
+  
+ Method Numbers: 
+
+Cat Model
+  
+ Method Numbers: 
+
+Room Model
+  
+ Method Numbers: 

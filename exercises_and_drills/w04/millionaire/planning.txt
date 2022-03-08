@@ -1,0 +1,23 @@
+Commit 2 - Plan out your app in this text file.
+
+Controller Methods
+
+  - 
+  - 
+  - 
+
+View Methods
+
+  - 
+  - 
+  - 
+
+Models and the Model Methods
+
+  • 
+      - 
+      - 
+  • 
+      - 
+      - 
+
