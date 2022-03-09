@@ -1,5 +1,5 @@
 # actualize
-Code / projects learned during bootcamp
+Technologies learned / projects coded during bootcamp
 
   ## ruby_rails
     learning ruby and writing backends in rails
