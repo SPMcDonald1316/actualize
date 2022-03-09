@@ -1,4 +1,11 @@
-# Learning inheritance
+module EmailReportable
+  def send_report
+    p "going to send a report..."
+    # do some logic here to send emails etc
+    p "just sent all the reports"
+  end
+end
+
 class Employee
   attr_accessor :first_name, :last_name, :salary, :active
 
@@ -22,6 +29,7 @@ employee1 = Employee.new(first_name: 'Danilo', last_name: 'Campos', salary: 8000
 employee2 = Employee.new(first_name: 'Majora', last_name: 'Carter', salary: 70000, active: false)
 
 class Manager < Employee
+  include EmailReportable
   attr_reader :employees
 
   def initialize(input_options)
@@ -40,12 +48,6 @@ class Manager < Employee
       employee.active = false
     end
   end
-
-  def send_report
-    p "going to send a report..."
-    # do some logic here to send emails etc
-    p "just sent all the reports"
-  end
 end
 
 manager1 = Manager.new(first_name: 'Manny', last_name: 'Williams', salary: 100000, active: true, employees: [employee1, employee2])
@@ -56,10 +58,24 @@ manager1 = Manager.new(first_name: 'Manny', last_name: 'Williams', salary: 10000
 # Inheriting from Manager gives interns ability to fire / give raises which we don't want
 # One solution inherit from Employee and have non Dry code for the send_report method
 
+# class Intern < Employee
+#   def send_report
+#     p "going to send a report..."
+#     # do some logic here to send emails etc
+#     p "just sent all the reports"
+#   end
+# end
+
+# This problem is a use case for a module
+# Modules typically end in -able
+# Modules are a collection of methods that can be added to different classes
+
 class Intern < Employee
-  def send_report
-    p "going to send a report..."
-    # do some logic here to send emails etc
-    p "just sent all the reports"
-  end
+  include EmailReportable
 end
+
+intern = Intern.new(first_name: 'Ingrid', last_name: 'Smith', salary: 0, active: true)
+
+intern.send_report
+puts
+manager1.send_report
