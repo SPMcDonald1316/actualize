@@ -1,3 +1,7 @@
+# array
+employee = ['Danilo', 'Campos', 80000, true]
+p "#{employee[0]} #{employee[1]} makes #{employee[2]} per year."
+
 # hash
 # employee1 = {first_name: 'Danilo', last_name: 'Campos', salary: 80000, active: true}
 
@@ -64,22 +68,3 @@ class Employee
 end
 
 employee = Employee.new({first_name: 'Danilo', last_name: 'Campos', salary: 80000, active: true})
-
-# employee.print_info
-# employee.give_annual_raise
-# employee.print_info
-
-p employee.first_name
-p employee.last_name
-p employee.salary
-p employee.active
-p
-employee.first_name = 'Majora'
-employee.last_name = 'Carter'
-employee.salary = 70000
-employee.active = false
-p
-p employee.first_name
-p employee.last_name
-p employee.salary
-p employee.active
