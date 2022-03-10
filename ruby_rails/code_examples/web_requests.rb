@@ -10,10 +10,13 @@ require 'http'
 # show the weather in that city
 # display 'It is current #{weather} in #{city}'
 
-puts "Enter a city to see current weather."
-city = gets.chomp
+# puts "Enter a city to see current weather."
+# city = gets.chomp
 
-response = HTTP.get("https://api.openweathermap.org/data/2.5/weather?q=#{city}&units=imperial&appid=de73dde8c668aa452a3a73ac2cad74e2").parse
+# response = HTTP.get("https://api.openweathermap.org/data/2.5/weather?q=#{city}&units=imperial&appid=deactivated").parse
 
 
-p ("It is #{response['main']['temp']} degrees and #{response['weather'][0]['description']} in #{response['name']}.")
+# p ("It is #{response['main']['temp']} degrees and #{response['weather'][0]['description']} in #{response['name']}.")
+
+
+# Dictionary lookup
