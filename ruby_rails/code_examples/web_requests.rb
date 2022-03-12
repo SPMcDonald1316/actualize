@@ -20,3 +20,8 @@ require 'http'
 
 
 # Dictionary lookup
+# build a terminal dictionary app
+# program should ask the user to enter a word, then use the wordnik api to show definition
+# display the top example and pronunciation
+# place program in a loop to enter multiple word or q to quit
+# use wordniks audio api to get the first fileUrl to open in the browser and pronounce the word
