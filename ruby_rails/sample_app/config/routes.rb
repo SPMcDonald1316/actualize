@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     get "/hello" => "example_pages#welcome"
 
     get "/table" => "example_pages#table"
+
+    get "/third_url" => "example_pages#another"
   end
 end
