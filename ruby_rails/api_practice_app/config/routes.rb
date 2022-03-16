@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "/first" => "messages#first"
+    get "/second" => "messages#second"
   end
 end
