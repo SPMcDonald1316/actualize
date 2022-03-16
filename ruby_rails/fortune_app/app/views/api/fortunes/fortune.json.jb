@@ -1,1 +1,4 @@
-{fortune: @fortune}
+{
+  fortune: @fortune,
+  lotto: @lotto 
+}
