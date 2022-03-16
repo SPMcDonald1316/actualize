@@ -6,4 +6,8 @@ class Api::MessagesController < ApplicationController
   def second
     render 'second.json.jb'
   end
+
+  def third
+    render 'third.json.jb'
+  end
 end
