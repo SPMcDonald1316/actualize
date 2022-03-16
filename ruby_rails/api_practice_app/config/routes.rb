@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     get "/first" => "messages#first"
     get "/second" => "messages#second"
     get "/third" => "messages#third"
+    get "/info" => "messages#personal_info"
   end
 end
