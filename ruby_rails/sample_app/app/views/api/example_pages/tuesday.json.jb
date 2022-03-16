@@ -1,1 +1,1 @@
-{today: 'Tuesday', time: Time.now.strftime("%A, %b %d")}
+{today: 'Tuesday', time: @time}

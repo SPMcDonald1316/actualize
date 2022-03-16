@@ -8,6 +8,7 @@ class Api::ExamplePagesController < ApplicationController
   end
 
   def another
+    @time = Time.now.strftime("%A, %b %d")
     render 'tuesday.json.jb'
   end
 
