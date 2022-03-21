@@ -5,7 +5,7 @@ require 'http'
 
 # p response.parse
 
-# Basic weather app
+# Basic weather app[0]
 # user enters a city
 # show the weather in that city
 # display 'It is current #{weather} in #{city}'
@@ -28,9 +28,22 @@ require 'http'
 
 puts 'Enter a word:'
 word = gets.chomp
+puts
+while word != 'q'
+  response_def = HTTP.get("http://api.wordnik.com/v4/word.json/#{word}/definitions?api_key=AN_API_KEY").parse
+  p "Definition: #{response_def[0]['text']}"
+  puts
+  response_example = HTTP.get("http://api.wordnik.com/v4/word.json/#{word}/topExample?api_key=AN_API_KEY").parse
+  p "Example: #{response_example['text']}"
+  puts
+  response_pronunciation = HTTP.get("http://api.wordnik.com/v4/word.json/#{word}/pronunciations?api_key=AN_API_KEY").parse
+  p "Pronunciation: #{response_pronunciation[0]['raw']}"
+  puts
 
-response_def = HTTP.get("http://api.wordnik.com/v4/word.json/#{word}/definitions?api_key=AN_API_KEY").parse
-response_example = HTTP.get("http://api.wordnik.com/")
+  puts 'Enter another word or q to quit:'
+  word = gets.chomp
+end
 
-pp response[0]['text']
+puts 'Goodbye!'
+
 
