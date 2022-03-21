@@ -26,4 +26,11 @@ require 'http'
 # place program in a loop to enter multiple word or q to quit
 # use wordniks audio api to get the first fileUrl to open in the browser and pronounce the word
 
-response = HTTP.get()
+puts 'Enter a word:'
+word = gets.chomp
+
+response_def = HTTP.get("http://api.wordnik.com/v4/word.json/#{word}/definitions?api_key=AN_API_KEY").parse
+response_example = HTTP.get("http://api.wordnik.com/")
+
+pp response[0]['text']
+
