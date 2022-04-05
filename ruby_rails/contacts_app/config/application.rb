@@ -23,7 +23,7 @@ module ContactsApp
     config.generators.assets = false
     config.generators.helper = false
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 6.0
 
     # Configuration for the application, engines, and railties goes here.
     #
