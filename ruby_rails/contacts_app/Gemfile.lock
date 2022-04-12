@@ -74,6 +74,8 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -181,6 +183,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  faker
   http
   jb
   jbuilder
