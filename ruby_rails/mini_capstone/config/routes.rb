@@ -9,5 +9,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "/products" => "products#index"
+    get "/productOne" => "products#product_one"
+    get "/productTwo" => "products#product_two"
+    get "/productThree" => "products#product_three"
   end
 end
