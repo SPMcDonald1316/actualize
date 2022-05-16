@@ -1,5 +1,6 @@
 class Api::ExamplesController < ApplicationController
-  def query
+  def query 
+    @username = params['name']
     render 'query_params.json.jb'
   end
 end
