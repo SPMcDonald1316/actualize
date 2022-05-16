@@ -1,0 +1,4 @@
+{
+  guess: @guess,
+  message: @message
+}
