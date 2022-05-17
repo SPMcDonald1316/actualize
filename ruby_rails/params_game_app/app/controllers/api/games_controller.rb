@@ -25,4 +25,15 @@ class Api::GamesController < ApplicationController
   def segment
     render 'api/games/segment'
   end
+
+  def secret
+    user_name = params[:user_name]
+    password = params[:password]
+    if user_name == 'hugh' && password == 'swordfish'
+      @message = 'Valid credentials'
+    else
+      @message = 'Invalid credentials'
+    end
+    render 'api/games/secret'
+  end
 end
