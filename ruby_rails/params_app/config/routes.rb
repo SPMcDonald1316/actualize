@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get "/query_param" => "examples#query"
+
+    post "/body_params" => "examples#body_parameters"
   end
 end
