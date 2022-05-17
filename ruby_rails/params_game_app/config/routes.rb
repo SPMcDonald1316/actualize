@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     get "/guessANumber/:number" => "games#guess_a_number"
 
     get "/url_segment_parameter/:name" => "games#segment"  
+
+    post "/guessANumber" => "games#guess_a_number"
   end
 end
