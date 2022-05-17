@@ -4,11 +4,7 @@ class Api::GamesController < ApplicationController
     if @name[0] == 'A'
       @message = 'Hey your name starts with the first letter of the alphabet!'
     end
-    render(
-      template: 'api/games/name',
-      formats: [:json],
-      handlers: [:jb]
-    )
+    render 'api/games/name'
   end
 
   def guess_a_number
@@ -21,10 +17,10 @@ class Api::GamesController < ApplicationController
     else
       @message = 'Correct!'
     end
-    render(
-      template: 'api/games/guessNumber',
-      formats: [:json],
-      handlers: [:jb]
-    )
+    render 'api/games/guessNumber'
+  end
+
+  def segment
+    render 'api/games/segment'
   end
 end
