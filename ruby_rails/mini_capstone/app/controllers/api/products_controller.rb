@@ -8,4 +8,9 @@ class Api::ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id].to_i)
     render 'api/products/product'
   end
+
+  def product_query
+    @product = Product.find_by(id: params[:id].to_i)
+    render 'api/products/product'
+  end
 end
