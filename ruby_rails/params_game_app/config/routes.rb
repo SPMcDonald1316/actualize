@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # get "/photos" => "photos#index"
 
   namespace :api do
-    get "/name" => "games#name"
-    get "/guessANumber" => "games#guess_a_number"
+    get "/name/:name" => "games#name"
+    get "/guessANumber/:number" => "games#guess_a_number"
 
     get "/url_segment_parameter/:name" => "games#segment"  
   end
