@@ -1,1 +1,6 @@
-{message: 'hello'}
+{
+  first_name: @input[:first],
+  last_name: @input[:last],
+  phone: @input[:phone],
+  email: @input[:email]
+}

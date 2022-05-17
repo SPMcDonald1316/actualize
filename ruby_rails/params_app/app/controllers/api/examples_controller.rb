@@ -5,6 +5,7 @@ class Api::ExamplesController < ApplicationController
   end
 
   def body_parameters
+    @input = params
     render 'api/examples/body_params'
   end
 end
