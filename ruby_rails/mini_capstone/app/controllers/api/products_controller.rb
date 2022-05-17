@@ -4,12 +4,7 @@ class Api::ProductsController < ApplicationController
     render 'api/products/index'
   end
 
-  def product_seg
-    @product = Product.find_by(id: params[:id].to_i)
-    render 'api/products/product'
-  end
-
-  def product_query
+  def product
     @product = Product.find_by(id: params[:id].to_i)
     render 'api/products/product'
   end
