@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     get "/url_segment_parameter/:name" => "games#segment"  
 
     post "/guessANumber" => "games#guess_a_number"
+    post "/secret" => "games#secret"
   end
 end
