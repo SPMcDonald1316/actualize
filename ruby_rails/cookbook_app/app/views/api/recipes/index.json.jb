@@ -4,5 +4,6 @@
   title: recipe.title,
   chef: recipe.chef,
   ingredients: recipe.ingredients,
-  prep_time: recipe.prep_time
+  prep_time: recipe.prep_time,
+  directions: recipe.directions
 }}
