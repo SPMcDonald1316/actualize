@@ -21,4 +21,17 @@ class Api::RecipesController < ApplicationController
     @recipe.save
     render 'api/recipes/show'
   end
+
+  def update
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe = Recipe.update({
+      title: params[:title] || @recipe.title,
+      ingredients: params[:ingredients] || @recipe.ingredients,
+      chef: params[:chef] || @recipe.chef,
+      directions: params[:directions] || @recipe.directions,
+      prep_time: params[:prep_time] || @recipe.prep_time,
+      image_url: params[:image_url] || @recipe.image_url
+    })
+    render 'api/recipes/show'
+  end
 end
