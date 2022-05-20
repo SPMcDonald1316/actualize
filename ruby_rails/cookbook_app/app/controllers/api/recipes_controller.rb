@@ -24,7 +24,7 @@ class Api::RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find_by(id: params[:id])
-    @recipe = Recipe.update({
+    @recipe.update({
       title: params[:title] || @recipe.title,
       ingredients: params[:ingredients] || @recipe.ingredients,
       chef: params[:chef] || @recipe.chef,
