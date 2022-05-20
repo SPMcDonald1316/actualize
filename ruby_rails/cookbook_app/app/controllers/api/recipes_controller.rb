@@ -36,7 +36,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def destroy
-    Recipe.destroy(id: params[:id])
+    Recipe.find_by(id:params[:id]).destroy
     @recipes = Recipe.all
     render 'api/recipes/index'
   end
