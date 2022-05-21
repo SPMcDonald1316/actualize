@@ -19,4 +19,14 @@ class Api::ProductsController < ApplicationController
     @product.save
     render 'api/products/show'
   end
+
+  def update
+    @product = Product.find_by(id: params[:id]).update({
+      name: params[:name] || @product.name,
+      price: params[:price] || @product.price,
+      description: params[:description] || @product.description,
+      image_url: params[:image_url] || @product.image_url
+    })
+    render 'api/products/show'
+  end
 end
