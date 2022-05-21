@@ -29,4 +29,9 @@ class Api::ProductsController < ApplicationController
     })
     render 'api/products/show'
   end
+
+  def destroy
+    Product.find_by(id: params[:id]).destroy
+    render 'api/products/destroy'
+  end
 end
