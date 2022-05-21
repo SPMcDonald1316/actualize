@@ -8,4 +8,15 @@ class Api::ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     render 'api/products/show'
   end
+
+  def create
+    @product = Product.new({
+      name: params[:name],
+      price: params[:price],
+      description: params[:description],
+      image_url: params[:image_url]
+    })
+    @product.save
+    render 'api/products/show'
+  end
 end
