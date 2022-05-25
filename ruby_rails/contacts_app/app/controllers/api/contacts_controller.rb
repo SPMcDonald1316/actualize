@@ -31,4 +31,10 @@ class Api::ContactsController < ApplicationController
 
     render 'api/contacts/show'
   end
+
+  def destroy
+    contact = Contact.find_by(id: params[:id])
+    contact.destroy
+    render 'api/contacts/destroy'
+  end
 end
