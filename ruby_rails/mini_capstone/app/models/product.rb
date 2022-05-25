@@ -7,4 +7,8 @@ class Product < ApplicationRecord
   def tax
     (price * TAX_RATE).round(2)
   end
+
+  def total
+    price + tax
+  end
 end
