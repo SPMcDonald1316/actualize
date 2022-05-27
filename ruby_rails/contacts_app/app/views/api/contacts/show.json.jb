@@ -1,8 +1,1 @@
-{
-  id: @contact.id,
-  name: @contact.full_name,
-  phone: @contact.japan_country_code,
-  email: @contact.email,
-  created_at: @contact.friendly_created_at,
-  updated_at: @contact.friendly_updated_at
-}
+render partial: 'api/contacts/contact', locals: {contact: @contact}
