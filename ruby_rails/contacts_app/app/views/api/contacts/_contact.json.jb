@@ -3,6 +3,7 @@
   name: contact.full_name,
   phone: contact.phone_number,
   email: contact.email,
+  bio: contact.bio,
   created_at: contact.friendly_created_at,
   updated_at: contact.friendly_updated_at
 }
