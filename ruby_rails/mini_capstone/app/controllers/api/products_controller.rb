@@ -16,8 +16,12 @@ class Api::ProductsController < ApplicationController
       description: params[:description],
       image_url: params[:image_url]
     })
-    @product.save
-    render 'api/products/show'
+
+    if @product.save
+      render 'api/products/show'
+    else
+      render json: {errors: @product.errors.full_messages}
+   end
   end
 
   def update
