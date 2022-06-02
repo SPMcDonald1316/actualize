@@ -4,6 +4,9 @@
   phone: contact.phone_number,
   email: contact.email,
   bio: contact.bio,
+  address: contact.address,
+  latitude: contact.lat,
+  longitude: contact.long,
   created_at: contact.friendly_created_at,
   updated_at: contact.friendly_updated_at
 }

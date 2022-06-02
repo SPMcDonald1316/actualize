@@ -14,4 +14,13 @@ class Contact < ApplicationRecord
   def japan_country_code
     "+81 #{phone_number}"
   end
+
+  def geolocate
+    if address
+      results = Geocoder.search(address)
+      return results.first.coordinates
+    else
+      return [nil, nil]
+    end
+  end
 end

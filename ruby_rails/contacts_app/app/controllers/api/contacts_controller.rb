@@ -14,8 +14,11 @@ class Api::ContactsController < ApplicationController
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
-      phone_number: params[:phone_number]
+      phone_number: params[:phone_number],
+      bio: params[:bio],
+      address: params[:address],
     })
+    @contact.lat, @contact.long = @contact.geolocate
     @contact.save
     render 'api/contacts/show'
   end
@@ -26,9 +29,12 @@ class Api::ContactsController < ApplicationController
       first_name: params[:first_name] || @contact.first_name,
       last_name: params[:last_name] || @contact.last_name,
       email: params[:email] || @contact.email,
-      phone_number: params[:phone_number] || @contact.phone_number
+      phone_number: params[:phone_number] || @contact.phone_number,
+      bio: params[:bio] || @contact.bio,
+      address: params[:address] || @contact.address,
     })
-
+    @contact.lat, @contact.long = @contact.geolocate
+    @contact.save
     render 'api/contacts/show'
   end
 
