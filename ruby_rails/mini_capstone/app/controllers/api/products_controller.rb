@@ -20,7 +20,7 @@ class Api::ProductsController < ApplicationController
     if @product.save
       render 'api/products/show'
     else
-      render json: {errors: @product.errors.full_messages}
+      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
    end
   end
 
