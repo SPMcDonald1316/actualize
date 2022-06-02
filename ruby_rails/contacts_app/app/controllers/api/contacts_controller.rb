@@ -35,7 +35,7 @@ class Api::ContactsController < ApplicationController
       phone_number: params[:phone_number] || @contact.phone_number,
       bio: params[:bio] || @contact.bio,
       address: params[:address] || @contact.address,
-      })
+    })
       @contact.lat, @contact.long = @contact.geolocate
       @contact.save
       render 'api/contacts/show'
