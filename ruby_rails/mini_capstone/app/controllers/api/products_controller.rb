@@ -1,6 +1,11 @@
 class Api::ProductsController < ApplicationController
   def index
-    @products = Product.where("name LIKE '%#{params[:search]}%'")
+    @products = Product.all
+    if params[:search] == 'discount'
+      @products = @products.select {|product| product.is_discounted?}
+    else
+      @products = @products.select {|product| !product.is_discounted?}
+    end
     render 'api/products/index'
   end
 

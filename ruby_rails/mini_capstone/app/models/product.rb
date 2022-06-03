@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   TAX_RATE = 0.09
 
   def is_discounted?
-    price < 10
+    price < 30
   end
 
   def tax
