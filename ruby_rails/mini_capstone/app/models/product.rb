@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   validates :name, length: {maximum: 40}
   validates :price, numericality: {greater_than: 0}
   validates :price, numericality: {less_than_or_equal_to: 100}
-  validates :description, length: {in: 10..500}
+  validates :description, length: {in: 1..500}
 
   TAX_RATE = 0.09
 
