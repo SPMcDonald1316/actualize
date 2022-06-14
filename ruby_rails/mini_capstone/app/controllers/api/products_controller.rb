@@ -23,7 +23,6 @@ class Api::ProductsController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      image_url: params[:image_url]
     })
 
     if @product.save
@@ -39,7 +38,6 @@ class Api::ProductsController < ApplicationController
         name: params[:name] || @product.name,
         price: params[:price] || @product.price,
         description: params[:description] || @product.description,
-        image_url: params[:image_url] || @product.image_url
       })
       render 'api/products/show'
     else
