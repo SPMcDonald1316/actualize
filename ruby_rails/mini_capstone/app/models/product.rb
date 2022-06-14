@@ -5,6 +5,8 @@ class Product < ApplicationRecord
   validates :price, numericality: {less_than_or_equal_to: 100}
   validates :description, length: {in: 1..500}
 
+  belongs_to :supplier
+
   TAX_RATE = 0.09
 
   def is_discounted?
