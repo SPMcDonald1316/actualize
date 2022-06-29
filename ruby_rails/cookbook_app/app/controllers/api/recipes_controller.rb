@@ -1,6 +1,5 @@
 class Api::RecipesController < ApplicationController
   def index
-    p current_user
     @recipes = Recipe.all
     render 'api/recipes/index'
   end
