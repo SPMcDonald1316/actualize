@@ -18,7 +18,7 @@ class Api::ContactsController < ApplicationController
       bio: params[:bio],
       address: params[:address],
     })
-    @contact.lat, @contact.long = @contact.geolocate
+    # @contact.lat, @contact.long = @contact.geolocate
     if @contact.save
       render 'api/contacts/show'
     else
@@ -36,8 +36,8 @@ class Api::ContactsController < ApplicationController
       bio: params[:bio] || @contact.bio,
       address: params[:address] || @contact.address,
     })
-      @contact.lat, @contact.long = @contact.geolocate
-      @contact.save
+      # @contact.lat, @contact.long = @contact.geolocate
+      # @contact.save
       render 'api/contacts/show'
     else
       render json: {errors: @contact.errors.full_messages}
