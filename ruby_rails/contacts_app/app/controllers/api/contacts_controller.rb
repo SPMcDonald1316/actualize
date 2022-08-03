@@ -17,6 +17,7 @@ class Api::ContactsController < ApplicationController
       phone_number: params[:phone_number],
       bio: params[:bio],
       address: params[:address],
+      user_id: current_user.id
     })
     # @contact.lat, @contact.long = @contact.geolocate
     if @contact.save
