@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   validates :description, length: {in: 1..500}
 
   belongs_to :supplier
+  belongs_to :order
   has_many :images
 
   TAX_RATE = 0.09
