@@ -13,9 +13,10 @@ class ApplicationController < ActionController::Base
           { algorithm: "HS256" }
         )
         User.find_by(id: decoded_token[0]["user_id"])
-      rescue => JWT::ExpiredSignature
+      rescue JWT::ExpiredSignature
         nil
       end
+    end
   end
 
   helper_method :current_user
