@@ -15,6 +15,7 @@ class Api::OrdersController < ApplicationController
     if @order.save
       @order.tax = @order.subtotal * tax_rate
       @order.total = @order.subtotal + @order.tax
+      @order.save
       render 'api/orders/show'
     else
       render json: {errors: @order.errors.full_messages}, status: :unprocessable_entity
