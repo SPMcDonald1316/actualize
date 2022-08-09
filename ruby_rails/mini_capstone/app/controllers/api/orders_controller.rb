@@ -5,7 +5,8 @@ class Api::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.where(user_id: current_user.id AND id:)
+    @order = Order.find_by(id: params[:id])
+    render "api/orders/show"
   end
 
   def create
