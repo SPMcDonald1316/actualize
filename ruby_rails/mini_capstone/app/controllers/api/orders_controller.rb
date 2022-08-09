@@ -1,7 +1,11 @@
 class Api::OrdersController < ApplicationController
   def index
-    @orders = Order.where(user_id: current_user.id)
+    @orders = current_user.orders
     render "api/orders/index"
+  end
+
+  def show
+    @order = Order.where(user_id: current_user.id AND id:)
   end
 
   def create
