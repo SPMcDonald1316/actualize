@@ -5,18 +5,22 @@ class Api::OrdersController < ApplicationController
   end
 
   def create
-    product = Product.find_by(id: params[:product_id])
     tax_rate = 0.10
+    
+    product = Product.find_by(id: params[:product_id])
+    subtotal = product.price * params[:quantity].to_i
+    tax = subtotal * tax_rate
+    total = subtotal + tax
+
     @order = Order.new({
       user_id: current_user.id,
       product_id: params[:product_id],
       quantity: params[:quantity],
-      subtotal: product.price * params[:quantity].to_i,
+      subtotal: subtotal,
+      tax: tax,
+      total: total
     })
     if @order.save
-      @order.tax = @order.subtotal * tax_rate
-      @order.total = @order.subtotal + @order.tax
-      @order.save
       render 'api/orders/show'
     else
       render json: {errors: @order.errors.full_messages}, status: :unprocessable_entity
