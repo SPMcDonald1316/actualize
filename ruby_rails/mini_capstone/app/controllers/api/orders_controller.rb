@@ -3,6 +3,7 @@ class Api::OrdersController < ApplicationController
     @orders = Order.where(user_id: current_user.id)
     render "api/orders/index"
   end
+
   def create
     product = Product.find_by(id: params[:product_id])
     tax_rate = 0.10
