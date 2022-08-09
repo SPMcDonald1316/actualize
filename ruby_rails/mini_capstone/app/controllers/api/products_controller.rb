@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
-  before_action :authenticate_admin
-  
+  before_action :authenticate_admin, only: [:create, :update, :destroy]
+
   def index
     @products = Product.all
     # if params[:search]
