@@ -9,6 +9,7 @@ class Product < ApplicationRecord
   belongs_to :order
   has_many :images
   has_many :category_products
+  has_many :category_products, through: :category_products
 
   TAX_RATE = 0.09
 
