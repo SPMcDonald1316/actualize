@@ -1,6 +1,9 @@
 class Api::ContactsController < ApplicationController
   def index
-    if current_user
+    if current_user && params[:group]
+      group = Group.find_by(name: params[:group])
+      @contacts = group.contacts.where(user_id: current_user.id)
+    elsif current_user
       @contacts = current_user.contacts
     else
       @contacts = []
@@ -42,7 +45,7 @@ class Api::ContactsController < ApplicationController
       address: params[:address] || @contact.address,
     })
       # @contact.lat, @contact.long = @contact.geolocate
-      # @contact.save
+      @contact.save
       render 'api/contacts/show'
     else
       render json: {errors: @contact.errors.full_messages}
