@@ -1,0 +1,1 @@
+render partial: "api/carted_products/carted_product", collection: @carted_products
