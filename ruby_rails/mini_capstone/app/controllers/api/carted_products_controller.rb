@@ -1,14 +1,12 @@
 class Api::CartedProductsController < ApplicationController
   def create
-    if current_user
-      carted_product = CartedProduct.new({
-        status: 'carted',
+      @carted_product = CartedProduct.new({
         user_id: current_user.id,
         product_id: params[:product_id],
-        quantity: params[:quantity]
+        quantity: params[:quantity],
+        status: 'carted'
       })
-    else
-      render json: {error: "Please login first."}, status: :unprocessible_entity
-    end
+      @carted_product.save
+      render 'api/carted_products/show'
   end
 end
