@@ -17,7 +17,7 @@ class Api::OrdersController < ApplicationController
     subtotal = 0
   
     carted_products.each do |cp|
-      subtotal = cp.product.price * cp.quantity
+      subtotal += cp.product.price * cp.quantity
     end
 
     tax = subtotal * tax_rate
