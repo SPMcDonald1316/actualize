@@ -31,9 +31,7 @@ class Api::OrdersController < ApplicationController
     })
 
     if @order.save
-      carted_products.each do |cp|
-        cp.update({status: 'purchased', order_id: @order.id})
-      end
+      carted_products.update_all(status: 'purchased', order_id: @order.id)
       render 'api/orders/show'
     else
       render json: {errors: @order.errors.full_messages}, status: :unprocessable_entity
