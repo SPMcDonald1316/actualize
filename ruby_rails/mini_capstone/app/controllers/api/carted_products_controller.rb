@@ -26,7 +26,7 @@ class Api::CartedProductsController < ApplicationController
   def remove
     @carted_products = current_user.carted_products.where(status: 'carted')
 
-    product = @carted_products.find_by(product_id: params[:product_id]).update({status: 'removed'})
+    product = @carted_products.find_by(product_id: params[:id]).update({status: 'removed'})
 
     render 'api/carted_products/index'
   end
