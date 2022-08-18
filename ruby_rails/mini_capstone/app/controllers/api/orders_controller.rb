@@ -21,12 +21,11 @@ class Api::OrdersController < ApplicationController
 
     @order = Order.new({
       user_id: current_user.id,
-      product_id: params[:product_id],
-      quantity: params[:quantity],
       subtotal: subtotal,
       tax: tax,
       total: total
     })
+    
     if @order.save
       render 'api/orders/show'
     else
