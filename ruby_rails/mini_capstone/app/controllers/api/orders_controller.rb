@@ -12,10 +12,14 @@ class Api::OrdersController < ApplicationController
   end
 
   def create
-    tax_rate = 0.10
-    
-    product = Product.find_by(id: params[:product_id])
-    subtotal = product.price * params[:quantity].to_i
+    tax_rate = 0.09
+    carted_products = current_user.carted_products.where(status: 'carted')
+    subtotal = 0
+  
+    carted_products.each do |cp|
+      subtotal = cp.product.price * cp.quantity
+    end
+
     tax = subtotal * tax_rate
     total = subtotal + tax
 
@@ -25,8 +29,11 @@ class Api::OrdersController < ApplicationController
       tax: tax,
       total: total
     })
-    
+
     if @order.save
+      carted_products.each do |cp|
+        cp.update({status: 'purchased', order_id: @order.id})
+      end
       render 'api/orders/show'
     else
       render json: {errors: @order.errors.full_messages}, status: :unprocessable_entity
