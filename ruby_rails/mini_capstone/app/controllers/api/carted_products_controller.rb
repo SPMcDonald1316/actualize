@@ -1,8 +1,7 @@
 class Api::CartedProductsController < ApplicationController
   def index
     if current_user
-      carted = current_user.carted_products
-      @carted_products = carted.where(status: 'carted')
+      @carted_products = current_user.carted_products.where(status: 'carted')
       render 'api/carted_products/index'
     else
       render json: {message: 'Log in to see cart.'}, status: :unprocessable_entity
