@@ -22,4 +22,12 @@ class Api::CartedProductsController < ApplicationController
       render json: {message: 'Please log in first.'}, status: :unauthorized 
     end
   end
+
+  def remove
+    @carted_products = current_user.carted_products.where(status: 'carted')
+
+    product = @carted_products.find_by(product_id: params[:product_id]).update({status: 'removed'})
+
+    render 'api/carted_products/index'
+  end
 end
