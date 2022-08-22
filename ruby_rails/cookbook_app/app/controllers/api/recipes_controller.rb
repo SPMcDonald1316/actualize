@@ -6,7 +6,7 @@ class Api::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
-    render 'api/recipes/show.html.erb'
+    render 'api/recipes/show'
   end
 
   def create
@@ -17,7 +17,7 @@ class Api::RecipesController < ApplicationController
       directions: params[:directions],
       prep_time: params[:prep_time],
       image_url: params[:image_url],
-      user_id: current_user.id
+      user_id: user.id
     )
     @recipe.save
     render 'api/recipes/show'

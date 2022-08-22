@@ -8,4 +8,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
     render "recipes/show"
   end
+
+  def new
+    render "recipes/new"
+  end
 end
