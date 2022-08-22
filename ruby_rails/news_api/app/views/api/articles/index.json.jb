@@ -1,1 +1,1 @@
-render partial: 'api/articles/article'
+render partial: 'api/articles/article', collection: @articles
