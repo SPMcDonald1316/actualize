@@ -6,7 +6,7 @@ class Api::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
-    render 'api/recipes/show'
+    render 'api/recipes/show.html'
   end
 
   def create
