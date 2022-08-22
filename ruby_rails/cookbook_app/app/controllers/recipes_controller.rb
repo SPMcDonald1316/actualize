@@ -12,4 +12,8 @@ class RecipesController < ApplicationController
   def new
     render "recipes/new"
   end
+
+  def create
+    render 'recipes/show'
+  end
 end
