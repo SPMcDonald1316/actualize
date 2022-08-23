@@ -27,4 +27,9 @@ class RecipesController < ApplicationController
     # render 'recipes/show'
     redirect_to "/recipes/#{@recipe.id}"
   end
+
+  def edit
+    @recipe = Recipe.find_by(id: params[:id])
+    render "recipes/edit"
+  end
 end
