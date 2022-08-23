@@ -5,3 +5,8 @@
 <p>Directions: <%= @recipe.directions %></p>
 
 <a href="/recipes/<%= @recipe.id %>/edit">Edit</a>
+
+<form action="/recipes/<%= @recipe.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Delete</button>
+</form>
