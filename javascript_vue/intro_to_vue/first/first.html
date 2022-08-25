@@ -13,6 +13,10 @@
       Show your message: <input type="text" v-model="message">
       <p><button v-on:click="Qualified()">Show/Hide ssn</button></p>
       <p v-if="isQualified">Here is some secret info: my ssn is 8675309</p>
+      <!-- <p>{{ fruits }}</p> -->
+      <div v-for="fruit in fruits">
+        <p>{{ fruit }}</p>
+      </div>
     </div>
 
   </body>
@@ -24,7 +28,13 @@
   data: {
     message: "Goodbye Vue!",
     location: "Chicago",
-    isQualified: false
+    isQualified: false,
+    fruits: [
+      "mango",
+      "banana",
+      "navel orange",
+      "pear"
+    ]
   },
   methods: {
     changeMessage: function() {
