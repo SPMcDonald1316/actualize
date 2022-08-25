@@ -17,8 +17,9 @@
       <div v-for="fruit in fruits">
         <p>{{ fruit }}</p>
       </div>
+      <input type="text" v-model="newFruit">
+      <button v-on:click="addFruit()">Add Fruit</button>
     </div>
-
   </body>
 </html>
 
@@ -34,7 +35,8 @@
       "banana",
       "navel orange",
       "pear"
-    ]
+    ],
+    newFruit: ""
   },
   methods: {
     changeMessage: function() {
@@ -43,6 +45,10 @@
     },
     Qualified: function() {
       this.isQualified = !this.isQualified;
+    },
+    addFruit: function() {
+      this.fruits.push(this.newFruit);
+      this.newFruit = "";
     }
   }
 });
