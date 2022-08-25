@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js Intro</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+      <h1>Guess a number!</h1>
+      <div>
+        <input type="text">
+        <button>Submit</button>
+        <button>Play again</button>
+      </div>
+      <div></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello Vue!"
+    },
+    methods: {}
+  })
+</script>
