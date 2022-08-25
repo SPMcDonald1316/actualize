@@ -10,11 +10,14 @@
       {{ message }}
       <h1>Guess a number!</h1>
       <div>
-        <input type="text">
-        <button>Submit</button>
+        <input type="text" v-model="guess">
+        <button v-on:click="checkAnswer()">Submit</button>
         <button>Play again</button>
       </div>
-      <div></div>
+      <div>
+        <h2>{{ guess }}</h2>
+        <p>{{ result }}</p>
+      </div>
     </div>
   </body>
 </html>
@@ -23,8 +26,17 @@
   var app = new Vue({
     el: "#app",
     data: {
-      message: "Hello Vue!"
+      message: "Hello Vue!",
+      guess: 0,
+      goal: Math.floor(Math.random() * 101),
+      result: ""
     },
-    methods: {}
+    methods: {
+      checkAnswer: function() {
+        goal = this.goal;
+        guess = this.guess;
+        this.result = guess > goal ? 'Too High' : guess < goal ? 'Too Low' : 'You Win!'
+      }
+    }
   })
 </script>
