@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue.js Intro</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+      <div>1st number: <input type="text"></div>
+      <div>2nd number: <input type="text"></div>
+      <div>3rd number: <input type="text"></div>
+      <div><button>Compute sum</button></div>
+      <p>The result is: </p>
+    </div>
+  </body>
+</html>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello Vue!"
+    },
+    methods: {
+
+    }
+  });
+</script>
