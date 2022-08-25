@@ -8,9 +8,9 @@
   <body>
     <div id="app">
       {{ message }}
-      <div>1st number: <input type="text"></div>
-      <div>2nd number: <input type="text"></div>
-      <div>3rd number: <input type="text"></div>
+      <div>1st number: <input type="text" v-model="number1"></div>
+      <div>2nd number: <input type="text" v-model="number2"></div>
+      <div>3rd number: <input type="text" v-model="number3"></div>
       <div><button>Compute sum</button></div>
       <p>The result is: </p>
     </div>
@@ -21,7 +21,10 @@
   var app = new Vue({
     el: "#app",
     data: {
-      message: "Hello Vue!"
+      message: "Hello Vue!",
+      number1: 0,
+      number2: 0,
+      number3: 0
     },
     methods: {
 
