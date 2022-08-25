@@ -8,8 +8,21 @@
   <body>
     <div id="app">
       {{ message }}
+      <h1>{{ location }}</h1>
     </div>
 
-    <script src="first.js"></script>
   </body>
 </html>
+
+<script>
+  var app = new Vue({
+  el: "#app",
+  data: {
+    message: "Goodbye Vue!",
+    location: "Chicago"
+  },
+  methods: {
+
+  }
+});
+</script>
