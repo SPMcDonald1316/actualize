@@ -11,6 +11,7 @@
       <h1>{{ location }}</h1>
       <button v-on:click="changeMessage()">Click here to change the message</button>
       Show your message: <input type="text" v-model="message">
+      <p><button v-on:click="Qualified()">Show/Hide ssn</button></p>
       <p v-if="isQualified">Here is some secret info: my ssn is 8675309</p>
     </div>
 
@@ -29,6 +30,9 @@
     changeMessage: function() {
       console.log('changing the message');
       this.message = 'hello';
+    },
+    Qualified: function() {
+      this.isQualified = !this.isQualified;
     }
   }
 });
