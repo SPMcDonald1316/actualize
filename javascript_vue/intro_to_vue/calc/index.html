@@ -11,8 +11,8 @@
       <div>1st number: <input type="text" v-model="number1"></div>
       <div>2nd number: <input type="text" v-model="number2"></div>
       <div>3rd number: <input type="text" v-model="number3"></div>
-      <div><button>Compute sum</button></div>
-      <p>The result is: </p>
+      <div><button v-on:click="computeSum()">Compute sum</button></div>
+      <p>The result is: {{ result }}</p>
     </div>
   </body>
 </html>
@@ -24,10 +24,13 @@
       message: "Hello Vue!",
       number1: 0,
       number2: 0,
-      number3: 0
+      number3: 0,
+      result: 0
     },
     methods: {
-
+      computeSum: function() {
+        this.result = parseInt(this.number1) + parseInt(this.number2) + parseInt(this.number3);
+      }
     }
   });
 </script>
