@@ -12,8 +12,8 @@
       <br>
       <br>
       <div><input type="text" v-model="headerSentence"></div>
+      <div>{{ yetAnotherMessage }}</div>
     </div>
-    <div>{{ yetAnotherMessage }}</div>
   </body>
 </html>
 
@@ -21,15 +21,15 @@
   var app = new Vue({
     el: "#app",
     data: {
-      message: Hello Vue!,
-      headerSentence: Welcome to VueJS!,
-      yetAnotherMessage: Another message?
+      message: "Hello Vue!",
+      headerSentence: "Welcome to VueJS!",
+      yetAnotherMessage: "Another message?"
 
     },
     methods: {
       changeMessage: function() {
         this.message = "Whoa..."
-      }
+      },
       otherMethod: function() {
         this.changeMessage();
       }
