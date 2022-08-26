@@ -7,6 +7,8 @@
       <p>{{ product.id }}. {{ product.name }}</p>
       <p>{{ product.description }}</p>
       <p>{{ product.formatted.price }}</p>
+      <img :src="product.image_url">
+      <hr/>
     </div>
   </div>
 </template>
