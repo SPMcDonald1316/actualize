@@ -20,6 +20,7 @@
         <p>Description: <textarea v-model="product.description"></textarea></p>
         <p>Image Url: <input type="text" v-model="product.image_url"/></p>
         <button v-on:click="updateProduct(product)">Update Product</button>
+        <button v-on:click="deleteProduct(product)">Delete Product</button>
       </div>
       <hr/>
     </div>
@@ -71,9 +72,15 @@
           description: product.description,
           image_url: product.image_url
         }
-
         axios.patch(`/products/${product.id}`, params).then(response => {
           product = response.data;
+        })
+      },
+      deleteProduct: function(product) {
+        axios.delete(`/products/${product.id}`).then(response => {
+          console.log(response.data)
+          var index = this.recipes.indexOf(product);
+          this.products.splice(index, 1);
         })
       }
     }
