@@ -2,6 +2,10 @@
   <div class="home">
     <h1>{{ message }}</h1>
     <h1>{{ name }}</h1>
+    <p>Name: <input v-model="productName" type="text"/></p>
+    <p>Price: <input v-model="productPrice" type="text"/></p>
+    <p>Description: <textarea placeholder="Product description" rows="3" cols="30" v-model="productDescription"></textarea></p>
+    <p>Image URL: <input v-model="productURL" type="text"/></p>
     <!-- <h1>{{ products }}</h1> -->
     <button v-on:click="addProduct()">Add A New Product</button>
     <div v-for="product in products">
@@ -24,7 +28,11 @@
       return {
         message: "Welcome to Vue.js!",
         name: "sean",
-        products: []
+        products: [],
+        productName: "",
+        productPrice: "",
+        productDescription: "",
+        productURL: ""
       };
     },
     created: function() {
@@ -35,13 +43,13 @@
     methods: {
       addProduct: function() {
         var params = {
-          name: 'baseball bat',
-          price: 65.99,
-          description: 'For hitting dingers!',
-          image_url: "https://tse1.mm.bing.net/th?id=OIP.3WSHRT2Le2IY6f0bCAEP2wHaHa&pid=Api"
+          name: this.productName,
+          price: this.productPrice,
+          description: this.productDescription,
+          image_url: this.productURL
         }
         axios.post("/products", params).then(response => {
-          console.log(response.data);
+          this.products.push(response.data);
         })
       }
     }
