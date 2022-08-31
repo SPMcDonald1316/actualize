@@ -10,9 +10,12 @@
     <button v-on:click="addProduct()">Add A New Product</button>
     <div v-for="product in products">
       <p>{{ product.id }}. {{ product.name }}</p>
-      <p>{{ product.description }}</p>
-      <p>{{ product.formatted.price }}</p>
-      <img :src="product.image_url">
+      <button v-on:click="showInfo(product)">Show More Info</button>
+      <div v-if="currentProduct === product">
+        <p>{{ product.description }}</p>
+        <p>{{ product.formatted.price }}</p>
+        <img :src="product.image_url">
+      </div>
       <hr/>
     </div>
   </div>
@@ -32,7 +35,8 @@
         productName: "",
         productPrice: "",
         productDescription: "",
-        productURL: ""
+        productURL: "",
+        currentProduct: ""
       };
     },
     created: function() {
@@ -51,6 +55,9 @@
         axios.post("/products", params).then(response => {
           this.products.push(response.data);
         })
+      },
+      showInfo: function(product) {
+        this.currentProduct = product;
       }
     }
   };
