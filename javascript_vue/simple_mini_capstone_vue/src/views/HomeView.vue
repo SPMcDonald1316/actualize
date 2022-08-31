@@ -15,6 +15,11 @@
         <p>{{ product.description }}</p>
         <p>{{ product.formatted.price }}</p>
         <img :src="product.image_url">
+        <p>Name: <input type="text" v-model="product.name"/></p>
+        <p>Price: <input type="text" v-model="product.price"/></p>
+        <p>Description: <textarea v-model="product.description"></textarea></p>
+        <p>Image Url: <input type="text" v-model="product.image_url"/></p>
+        <button v-on:click="updateProduct(product)">Update Product</button>
       </div>
       <hr/>
     </div>
@@ -58,6 +63,18 @@
       },
       showInfo: function(product) {
         this.currentProduct = product;
+      },
+      updateProduct: function(product) {
+        var params = {
+          name: product.name,
+          price: product.price,
+          description: product.description,
+          image_url: product.image_url
+        }
+
+        axios.patch(`/products/${product.id}`, params).then(response => {
+          product = response.data;
+        })
       }
     }
   };
