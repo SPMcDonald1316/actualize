@@ -77,9 +77,10 @@
         })
       },
       deleteProduct: function(product) {
+        // comment out destory in backend to test!!!!
         axios.delete(`/products/${product.id}`).then(response => {
           console.log(response.data)
-          var index = this.recipes.indexOf(product);
+          var index = this.products.indexOf(product);
           this.products.splice(index, 1);
         })
       }
