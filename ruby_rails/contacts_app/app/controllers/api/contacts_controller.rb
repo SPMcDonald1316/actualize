@@ -1,15 +1,14 @@
 class Api::ContactsController < ApplicationController
   def index
-    # if current_user && params[:group]
-    #   group = Group.find_by(name: params[:group])
-    #   @contacts = group.contacts.where(user_id: current_user.id)
-    # elsif current_user
-    #   @contacts = current_user.contacts
-    # else
-    #   @contacts = []
-    # end
-    @contacts = Contact.all
-    render 'api/contacts/index'
+    if current_user && params[:group]
+      group = Group.find_by(name: params[:group])
+      @contacts = group.contacts.where(user_id: current_user.id)
+    elsif current_user
+      @contacts = current_user.contacts
+    else
+      @contacts = []
+    end
+    render 'api/contacts/index.json.jb'
   end
 
   def show
