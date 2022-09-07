@@ -1,8 +1,8 @@
 class Contact < ApplicationRecord
   validates :first_name, :last_name, presence: true
-  belongs_to :user
-  has_many :contact_groups
-  has_many :groups, through: :contact_groups
+  # belongs_to :user
+  # has_many :contact_groups
+  # has_many :groups, through: :contact_groups
 
   def friendly_created_at
     created_at.strftime("%m, %d, %Y")

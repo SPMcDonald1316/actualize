@@ -4,5 +4,5 @@
   phone: contact.phone_number,
   email: contact.email,
   bio: contact.bio,
-  groups: contact.groups
+  # groups: contact.groups
 }
