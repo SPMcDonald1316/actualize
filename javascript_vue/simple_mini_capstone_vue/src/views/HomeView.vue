@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
-    <h1>{{ name }}</h1>
+    <h1>Add New Product</h1>
     <p>Name: <input v-model="productName" type="text"/></p>
     <p>Price: <input v-model="productPrice" type="text"/></p>
     <p>Description: <textarea placeholder="Product description" rows="3" cols="30" v-model="productDescription"></textarea></p>
     <p>Image URL: <input v-model="productURL" type="text"/></p>
-    <!-- <h1>{{ products }}</h1> -->
     <button v-on:click="addProduct()">Add A New Product</button>
+    <hr/>
+    <h1>Products</h1>
     <div v-for="product in products">
       <p>{{ product.id }}. {{ product.name }}</p>
       <button v-on:click="showInfo(product)">Show More Info</button>
@@ -35,8 +35,6 @@
   export default {
     data: function() {
       return {
-        message: "Welcome to Vue.js!",
-        name: "sean",
         products: [],
         productName: "",
         productPrice: "",
@@ -77,7 +75,6 @@
         })
       },
       deleteProduct: function(product) {
-        // comment out destory in backend to test!!!!
         axios.delete(`/products/${product.id}`).then(response => {
           console.log(response.data)
           var index = this.products.indexOf(product);
