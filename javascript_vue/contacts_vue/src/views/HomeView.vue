@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <di>
+    <div>
       <h1>Add New Contact</h1>
       <form>
         <label for="firstName">
@@ -17,12 +17,17 @@
         </label>
         <button v-on:click="addContact()">Add Contact</button>
       </form>
-    </di>
+    </div>
     <div>
       <h1>Contacts</h1>
       <div v-for="contact in contacts">
         <p>Name: {{contact.name}}</p>
-        <p>Number: {{contact.phone}}</p>
+        <button v-on:click="showInfo(contact)">Info</button>
+        <div v-if="currentContact === contact">
+          <p>Phone: {{currentContact.phone}}</p>
+          <p>Email: {{currentContact.email}}</p>
+          <p>Bio: {{currentContact.bio}}</p>
+        </div>
         <hr>
       </div>
     </div>
@@ -40,11 +45,13 @@
           lastName: '',
           email: '',
           phoneNumber: ''
-        }
+        },
+        currentContact: ''
       };
     },
     created: function() {
       axios.get("/api/contacts").then(response => {
+        console.log(response.data)
         this.contacts = response.data;
       });
     },
@@ -59,6 +66,9 @@
         axios.post("/api/contacts", params).then(response => {
           console.log(response.data);
         })
+      },
+      showInfo: function(contact) {
+        this.currentContact = contact
       }
     }
   };
