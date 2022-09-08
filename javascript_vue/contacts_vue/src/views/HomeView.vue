@@ -83,6 +83,7 @@
         }
         axios.post("/api/contacts", params).then(response => {
           console.log(response.data);
+          this.contacts.push(response.data);
         })
       },
       showInfo: function(contact) {
