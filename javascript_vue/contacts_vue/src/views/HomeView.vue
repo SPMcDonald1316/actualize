@@ -21,12 +21,30 @@
     <div>
       <h1>Contacts</h1>
       <div v-for="contact in contacts">
-        <p>Name: {{contact.name}}</p>
+        <p>Name: {{contact.first_name}} {{contact.last_name}}</p>
         <button v-on:click="showInfo(contact)">Info</button>
         <div v-if="currentContact === contact">
           <p>Phone: {{currentContact.phone}}</p>
           <p>Email: {{currentContact.email}}</p>
           <p>Bio: {{currentContact.bio}}</p>
+          <form>
+            <label for="firstName">
+              <p>First Name: <input id="firstName" type="text" v-model="contact.first_name" /></p>
+            </label>
+            <label for="lastName">
+              <p>Last Name: <input id="lastName" type="text" v-model="contact.last_name" /></p>
+            </label>
+            <label for="email">
+              <p>Email: <input id="email" type="text" v-model="contact.email" /></p>
+            </label>
+            <label for="phoneNumber">
+              <p>Phone Number: <input id="phoneNumber" type="text" v-model="contact.phone" /></p>
+            </label>
+            <label for="bio">
+              <p>Bio: <input id="bio" type="text" v-model="contact.bio" /></p>
+            </label>
+            <button v-on:click="updateContact(contact)">Edit Contact</button>
+          </form>
         </div>
         <hr>
       </div>
@@ -69,6 +87,17 @@
       },
       showInfo: function(contact) {
         this.currentContact = contact
+      },
+      updateContact: function(contact) {
+        var params = {
+          first_name: contact.first_name,
+          last_name: contact.last_name,
+          email: contact.email,
+          bio: contact.bio
+        }
+        axios.patch(`/api/contacts/${contact.id}`, params).then(response => {
+          console.log(response)
+        })
       }
     }
   };
