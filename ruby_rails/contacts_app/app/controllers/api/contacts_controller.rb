@@ -9,16 +9,16 @@ class Api::ContactsController < ApplicationController
     #   @contacts = []
     # end
     @contacts = Contact.all
-    render 'api/contacts/index.json.jb'
+    render 'index.json.jb'
   end
 
   def show
     @contact = Contact.find_by(id: params[:id])
-    render 'api/contacts/show'
+    render 'show.json.jb'
   end
 
   def create
-    @contact = Contact.new({
+    @contact = Contact.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
@@ -26,12 +26,13 @@ class Api::ContactsController < ApplicationController
       bio: params[:bio],
       address: params[:address],
       user_id: current_user.id
-    })
+    )
     # @contact.lat, @contact.long = @contact.geolocate
+
     if @contact.save
-      render 'api/contacts/show'
+      render 'show.json.jb'
     else
-      render json: {errors: @contact.errors.full_messages}
+      render json: {errors: @contact.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
@@ -47,7 +48,7 @@ class Api::ContactsController < ApplicationController
     })
       # @contact.lat, @contact.long = @contact.geolocate
       @contact.save
-      render 'api/contacts/show'
+      render 'show.json.jb'
     else
       render json: {errors: @contact.errors.full_messages}
     end
@@ -56,6 +57,6 @@ class Api::ContactsController < ApplicationController
   def destroy
     contact = Contact.find_by(id: params[:id])
     contact.destroy
-    render 'api/contacts/destroy'
+    render 'destroy.json.jb'
   end
 end
