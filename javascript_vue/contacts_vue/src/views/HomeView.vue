@@ -82,8 +82,9 @@
           phone_number: this.newContact.phoneNumber
         }
         axios.post("/api/contacts", params).then(response => {
-          console.log(response.data);
           this.contacts.push(response.data);
+        }).catch(error => {
+          console.log('Found an error');
         })
       },
       showInfo: function(contact) {
