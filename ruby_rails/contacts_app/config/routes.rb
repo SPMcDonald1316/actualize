@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     patch "/contacts/:id" => "contacts#update"
     delete "/contacts/:id" => "contacts#destroy"
 
+    # authentication
     post "/users" => "users#create"
-
     post "/sessions" => "sessions#create"
   end
 end

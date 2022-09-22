@@ -28,7 +28,7 @@ class Api::ContactsController < ApplicationController
       user_id: current_user.id
     )
     # @contact.lat, @contact.long = @contact.geolocate
-
+    
     if @contact.save
       render 'show.json.jb'
     else
