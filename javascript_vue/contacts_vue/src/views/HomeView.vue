@@ -16,6 +16,7 @@
           <p>Phone Number: <input id="phoneNumber" type="text" v-model="newContact.phoneNumber" /></p>
         </label>
         <button v-on:click="addContact()">Add Contact</button>
+        <p>{{ errors }}</p>
       </form>
     </div>
     <div>
@@ -59,17 +60,18 @@
       return {
         contacts: [],
         newContact: {
-          firstName: '',
-          lastName: '',
-          email: '',
-          phoneNumber: ''
+          firstName: "",
+          lastName: "",
+          email: "",
+          phoneNumber: ""
         },
-        currentContact: ''
+        currentContact: '',
+        errors: []
       };
     },
     created: function() {
       axios.get("/api/contacts").then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         this.contacts = response.data;
       });
     },
@@ -82,9 +84,11 @@
           phone_number: this.newContact.phoneNumber
         }
         axios.post("/api/contacts", params).then(response => {
+          console.log(response.data)
           this.contacts.push(response.data);
         }).catch(error => {
           console.log('Found an error');
+          this.errors.push(error.response.data.errors);
         })
       },
       showInfo: function(contact) {
