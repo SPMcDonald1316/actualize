@@ -16,8 +16,10 @@
           <p>Phone Number: <input id="phoneNumber" type="text" v-model="newContact.phoneNumber" /></p>
         </label>
         <button v-on:click="addContact()">Add Contact</button>
-        <p>{{ errors }}</p>
       </form>
+      <ul>
+        <li v-for="error in errors">{{ error }}</li>
+      </ul>
     </div>
     <div>
       <h1>Contacts</h1>
