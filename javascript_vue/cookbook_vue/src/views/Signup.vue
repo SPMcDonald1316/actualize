@@ -8,20 +8,24 @@
         </li>
       </ul>
       <div class="form-group">
-        <label>Name:</label>
-        <input type="text" class="form-control" v-model="name"/>
+        <label>Name:
+          <input type="text" class="form-control" v-model="name"/>
+        </label>
       </div>
       <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email"/>
+        <label>Email:
+          <input type="email" class="form-control" v-model="email"/>
+        </label>
       </div>
       <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password"/>
+        <label>Password:
+          <input type="password" class="form-control" v-model="password"/>
+        </label>
       </div>
       <div class="form-group">
-        <label>Password Confirmation:</label>
-        <input type="text" class="form-control" v-model="passwordConfirmation"/>
+        <label>Password Confirmation:
+          <input type="password" class="form-control" v-model="passwordConfirmation"/>
+        </label>
       </div>
       <input type="submit" class="btn btn-primary" value="Submit"/>
     </form>
