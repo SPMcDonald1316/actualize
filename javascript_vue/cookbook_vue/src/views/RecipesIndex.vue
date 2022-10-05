@@ -1,7 +1,11 @@
 <template>
   <div class="recipes-index">
-    <div v-if="loggedIn">
-      
+    <div v-for="recipe in recipes">
+      <p>Title: {{ recipe.title }}</p>
+      <p>Ingredients: {{ recipe.ingredients}}</p>
+      <p>Description: {{ recipe.description }}</p>
+      <p>Prep Time: {{ recipe.prep_time }}</p>
+      <hr>
     </div>
   </div>
 </template>
@@ -12,13 +16,12 @@
   export default {
     data: function() {
       return {
-        recipes: [],
-        loggedIn: false
+        recipes: '',
       }
     },
     created: function() {
       axios.get('/api/recipes').then(response => {
-        this.recipes.push(response.data)
+        this.recipes = response.data
       })
     }
   }
