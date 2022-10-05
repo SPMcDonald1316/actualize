@@ -1,9 +1,1 @@
-@recipes.map {|recipe| 
-{
-  id: recipe.id,
-  title: recipe.title,
-  chef: recipe.chef,
-  ingredients: recipe.ingredients,
-  prep_time: recipe.prep_time,
-  directions: recipe.directions
-}}
+render partial: 'api/recipes/recipe', collection: @recipes
