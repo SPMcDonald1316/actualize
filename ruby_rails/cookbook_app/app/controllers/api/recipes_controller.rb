@@ -1,12 +1,12 @@
 class Api::RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
-    render 'api/recipes/index'
+    render 'index.json.jb'
   end
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
-    render 'api/recipes/show'
+    render 'show.json.jb'
   end
 
   def create
@@ -20,7 +20,7 @@ class Api::RecipesController < ApplicationController
       user_id: user.id
     )
     @recipe.save
-    render 'api/recipes/show'
+    render 'show.json.jb'
   end
 
   def update
@@ -33,11 +33,11 @@ class Api::RecipesController < ApplicationController
       prep_time: params[:prep_time] || @recipe.prep_time,
       image_url: params[:image_url] || @recipe.image_url
     })
-    render 'api/recipes/show'
+    render 'show.json.jb'
   end
 
   def destroy
     Recipe.find_by(id:params[:id]).destroy
-    render 'api/recipes/destroy'
+    render 'destroy.json.jb'
   end
 end
