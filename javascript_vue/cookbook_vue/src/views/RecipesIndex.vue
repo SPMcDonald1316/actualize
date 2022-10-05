@@ -1,10 +1,7 @@
 <template>
   <div class="recipes-index">
     <div v-for="recipe in recipes">
-      <p>Title: {{ recipe.title }}</p>
-      <p>Ingredients: {{ recipe.ingredients}}</p>
-      <p>Description: {{ recipe.description }}</p>
-      <p>Prep Time: {{ recipe.prep_time }}</p>
+      <p>Title: <a v-bind:href="`/recipes/${recipe.id}`">{{ recipe.title }}</a></p>
       <hr>
     </div>
   </div>
