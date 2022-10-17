@@ -5,6 +5,7 @@
     <h1>{{ recipe.ingredients }}</h1>
     <h1>{{ recipe.directions }}</h1>
     <h1>{{ recipe.prep_time }}</h1>
+    <button v-on:click="editRecipe()">Edit</button>
   </div>
 </template>
 
@@ -21,6 +22,10 @@
         this.recipe = response.data
       })
     },
-    methods: {}
+    methods: {
+      editRecipe: function() {
+        this.$router.push(`/recipes/${this.$route.params.id}/edit`)
+      }
+    }
   }
 </script>

@@ -52,6 +52,11 @@ export default {
       },
       errors: []
     }
+  },
+  created: function() {
+    axios.get(`/api/recipes/${this.$route.params.id}`).then(response => {
+      this.recipe = response.data
+    })
   }
 }
 </script>
