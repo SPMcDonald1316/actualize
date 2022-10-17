@@ -8,29 +8,30 @@
         </ul>
         <div class="form-group">
           <label>
-            <input>
+            Title: <input type="text" class="form-control" v-model="recipe.title">
           </label>
         </div>
         <div class="form-group">
           <label>
-            <input>
+            Chef: <input type="text" class="form-control" v-model="recipe.chef">
           </label>
         </div>
         <div class="form-group">
           <label>
-            <input>
+            Ingredients: <input type="text" class="form-control" v-model="recipe.ingredients">
           </label>
         </div>
         <div class="form-group">
           <label>
-            <input>
+            Prep Time: <input type="text" class="form-control" v-model="recipe.prepTime">
           </label>
         </div>
         <div class="form-group">
           <label>
-            <input>
+            Directions: <input type="text" class="form-control" v-model="recipe.directions">
           </label>
         </div>
+        <input type="submit" class="btn btn-primary" value="Submit"/>
       </form>
     </div>
   </div>
