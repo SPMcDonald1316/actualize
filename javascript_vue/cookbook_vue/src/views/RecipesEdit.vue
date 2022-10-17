@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
           <label>
-            Prep Time: <input type="text" class="form-control" v-model="recipe.prepTime">
+            Prep Time: <input type="text" class="form-control" v-model="recipe.prep_time">
           </label>
         </div>
         <div class="form-group">
@@ -31,7 +31,7 @@
             Directions: <input type="text" class="form-control" v-model="recipe.directions">
           </label>
         </div>
-        <input type="submit" class="btn btn-primary" value="Submit"/>
+        <input type="submit" class="btn btn-primary" value="Edit"/>
       </form>
     </div>
   </div>
@@ -47,7 +47,7 @@ export default {
         title: '',
         chef: '',
         ingredients: '',
-        prepTime: '',
+        prep_time: '',
         directions: ''
       },
       errors: []
@@ -57,6 +57,23 @@ export default {
     axios.get(`/api/recipes/${this.$route.params.id}`).then(response => {
       this.recipe = response.data
     })
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        title: this.recipe.title,
+        chef: this.recipe.chef,
+        ingredients: this.recipe.ingredients,
+        prep_time: this.recipe.prep_time,
+        directions: this.recipe.directions
+      }
+      axios.patch(`/api/recipes/${this.recipe.id}`, params).then(response => {
+        console.log(response.data)
+        this.$router.push(`/recipes/${this.recipe.id}`)
+      }).catch(error => {
+        this.errors = error.response.data.errors
+      })
+    }
   }
 }
 </script>
