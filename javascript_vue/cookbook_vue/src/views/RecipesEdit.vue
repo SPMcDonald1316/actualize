@@ -4,7 +4,7 @@
       <form v-on:submit.prevent="submit()">
         <h1>Edit Recipe</h1>
         <ul>
-          <li></li>
+          <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
         <div class="form-group">
           <label>
@@ -35,3 +35,22 @@
     </div>
   </div>
 </template>
+
+<script>
+import axios from 'axios'
+
+export default {
+  data: function() {
+    return {
+      recipe: {
+        title: '',
+        chef: '',
+        ingredients: '',
+        prepTime: '',
+        directions: ''
+      },
+      errors: []
+    }
+  }
+}
+</script>
