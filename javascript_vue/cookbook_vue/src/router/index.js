@@ -7,6 +7,7 @@ import Logout from '../views/Logout.vue'
 import RecipesIndex from '../views/RecipesIndex.vue'
 import RecipesNew from '../views/RecipesNew.vue'
 import RecipesShow from '../views/RecipesShow.vue'
+import RecipesEdit from '../views/RecipesEdit.vue'
 
 Vue.use(VueRouter)
 
@@ -53,6 +54,11 @@ const routes = [
     path: '/recipes/:id',
     name: 'recipes-show',
     component: RecipesShow
+  },
+  {
+    path: '/recipes/:id/edit',
+    name: 'recipes-edit',
+    component: RecipesEdit
   }
 ]
 
