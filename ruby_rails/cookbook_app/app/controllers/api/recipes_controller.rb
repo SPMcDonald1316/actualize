@@ -33,7 +33,6 @@ class Api::RecipesController < ApplicationController
       prep_time: params[:prep_time] || @recipe.prep_time,
       image_url: params[:image_url] || @recipe.image_url
     })
-    @recipe.save
     render 'show.json.jb'
   end
 
