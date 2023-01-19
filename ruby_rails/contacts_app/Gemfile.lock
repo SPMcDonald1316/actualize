@@ -83,7 +83,7 @@ GEM
       ffi (>= 1.0.0)
       rake
     geocoder (1.8.1)
-    globalid (1.0.0)
+    globalid (1.0.1)
       activesupport (>= 5.0)
     http (5.1.1)
       addressable (~> 2.8)
@@ -130,6 +130,8 @@ GEM
       net-protocol
     nio4r (2.5.8)
     nokogiri (1.14.0-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.14.0-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.5)
     public_suffix (5.0.1)
@@ -196,6 +198,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
